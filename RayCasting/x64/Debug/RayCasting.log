@@ -1,0 +1,60 @@
+﻿Build started 7/2/2016 2:02:44 AM.
+     1>Project "C:\Users\Michael\Documents\Visual Studio 2015\Projects\RayCasting\RayCasting\RayCasting.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /I"C:\Users\Michael\Documents\Visual Studio 2015\Projects\RayCasting\packages\nupengl.core.0.1.0.1\build\native\../..//build/native/include/" /ZI /nologo /W3 /WX- /sdl /Od /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Debug\\" /Fd"x64\Debug\vc140.pdb" /Gd /TP /errorReport:prompt main.cpp
+         main.cpp
+     1>c:\users\michael\documents\visual studio 2015\projects\raycasting\raycasting\main.cpp(76): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+     1>c:\users\michael\documents\visual studio 2015\projects\raycasting\raycasting\main.cpp(102): warning C4305: 'argument': truncation from 'double' to 'float'
+     1>c:\users\michael\documents\visual studio 2015\projects\raycasting\raycasting\main.cpp(102): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>c:\users\michael\documents\visual studio 2015\projects\raycasting\raycasting\main.cpp(127): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>c:\users\michael\documents\visual studio 2015\projects\raycasting\raycasting\main.cpp(130): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>c:\users\michael\documents\visual studio 2015\projects\raycasting\raycasting\main.cpp(137): warning C4305: '+=': truncation from 'double' to 'float'
+     1>c:\users\michael\documents\visual studio 2015\projects\raycasting\raycasting\main.cpp(140): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>c:\users\michael\documents\visual studio 2015\projects\raycasting\raycasting\main.cpp(147): warning C4305: '+=': truncation from 'double' to 'float'
+     1>c:\users\michael\documents\visual studio 2015\projects\raycasting\raycasting\main.cpp(150): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>c:\users\michael\documents\visual studio 2015\projects\raycasting\raycasting\main.cpp(157): warning C4305: '-=': truncation from 'double' to 'float'
+     1>c:\users\michael\documents\visual studio 2015\projects\raycasting\raycasting\main.cpp(160): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>c:\users\michael\documents\visual studio 2015\projects\raycasting\raycasting\main.cpp(167): warning C4305: '-=': truncation from 'double' to 'float'
+     1>c:\users\michael\documents\visual studio 2015\projects\raycasting\raycasting\main.cpp(170): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>c:\users\michael\documents\visual studio 2015\projects\raycasting\raycasting\main.cpp(237): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\michael\documents\visual studio 2015\projects\raycasting\raycasting\main.cpp(242): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>c:\users\michael\documents\visual studio 2015\projects\raycasting\raycasting\main.cpp(299): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\michael\documents\visual studio 2015\projects\raycasting\raycasting\main.cpp(359): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+     1>c:\users\michael\documents\visual studio 2015\projects\raycasting\raycasting\main.cpp(365): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+     1>c:\users\michael\documents\visual studio 2015\projects\raycasting\raycasting\main.cpp(372): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+     1>c:\users\michael\documents\visual studio 2015\projects\raycasting\raycasting\main.cpp(373): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+     1>c:\users\michael\documents\visual studio 2015\projects\raycasting\raycasting\main.cpp(374): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+     1>c:\users\michael\documents\visual studio 2015\projects\raycasting\raycasting\main.cpp(379): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+     1>c:\users\michael\documents\visual studio 2015\projects\raycasting\raycasting\main.cpp(387): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>c:\users\michael\documents\visual studio 2015\projects\raycasting\raycasting\main.cpp(389): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>c:\users\michael\documents\visual studio 2015\projects\raycasting\raycasting\main.cpp(393): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>c:\users\michael\documents\visual studio 2015\projects\raycasting\raycasting\main.cpp(397): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>c:\users\michael\documents\visual studio 2015\projects\raycasting\raycasting\main.cpp(397): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+     1>c:\users\michael\documents\visual studio 2015\projects\raycasting\raycasting\main.cpp(402): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>c:\users\michael\documents\visual studio 2015\projects\raycasting\raycasting\main.cpp(406): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>c:\users\michael\documents\visual studio 2015\projects\raycasting\raycasting\main.cpp(406): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+     1>c:\users\michael\documents\visual studio 2015\projects\raycasting\raycasting\main.cpp(411): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>c:\users\michael\documents\visual studio 2015\projects\raycasting\raycasting\main.cpp(415): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>c:\users\michael\documents\visual studio 2015\projects\raycasting\raycasting\main.cpp(415): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+     1>c:\users\michael\documents\visual studio 2015\projects\raycasting\raycasting\main.cpp(420): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>c:\users\michael\documents\visual studio 2015\projects\raycasting\raycasting\main.cpp(424): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>c:\users\michael\documents\visual studio 2015\projects\raycasting\raycasting\main.cpp(424): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+     1>c:\users\michael\documents\visual studio 2015\projects\raycasting\raycasting\main.cpp(431): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>c:\users\michael\documents\visual studio 2015\projects\raycasting\raycasting\main.cpp(432): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>c:\users\michael\documents\visual studio 2015\projects\raycasting\raycasting\main.cpp(433): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>c:\users\michael\documents\visual studio 2015\projects\raycasting\raycasting\main.cpp(434): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>c:\users\michael\documents\visual studio 2015\projects\raycasting\raycasting\main.cpp(445): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>c:\users\michael\documents\visual studio 2015\projects\raycasting\raycasting\main.cpp(446): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+     1>c:\users\michael\documents\visual studio 2015\projects\raycasting\raycasting\main.cpp(449): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+     1>c:\users\michael\documents\visual studio 2015\projects\raycasting\raycasting\main.cpp(456): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+     1>c:\users\michael\documents\visual studio 2015\projects\raycasting\raycasting\main.cpp(460): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Michael\Documents\Visual Studio 2015\Projects\RayCasting\x64\Debug\RayCasting.exe" /INCREMENTAL /NOLOGO "C:\Users\Michael\Documents\Visual Studio 2015\Projects\RayCasting\packages\nupengl.core.0.1.0.1\build\native\../..//build/native/lib/x64\glew32.lib" "C:\Users\Michael\Documents\Visual Studio 2015\Projects\RayCasting\packages\nupengl.core.0.1.0.1\build\native\../..//build/native/lib/x64\glfw3dll.lib" "C:\Users\Michael\Documents\Visual Studio 2015\Projects\RayCasting\packages\nupengl.core.0.1.0.1\build\native\../..//build/native/lib/x64\freeglut.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\Michael\Documents\Visual Studio 2015\Projects\RayCasting\x64\Debug\RayCasting.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Michael\Documents\Visual Studio 2015\Projects\RayCasting\x64\Debug\RayCasting.lib" /MACHINE:X64 x64\Debug\lineFloat.obj
+         x64\Debug\main.obj
+         x64\Debug\vector2d.obj
+         RayCasting.vcxproj -> C:\Users\Michael\Documents\Visual Studio 2015\Projects\RayCasting\x64\Debug\RayCasting.exe
+     1>Done Building Project "C:\Users\Michael\Documents\Visual Studio 2015\Projects\RayCasting\RayCasting\RayCasting.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:04.83
