@@ -119,6 +119,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="fileIO.cpp" />
     <ClCompile Include="lineFloat.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="vector2d.cpp" />
@@ -127,10 +128,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="fileIO.h" />
     <ClInclude Include="lineFloat.h" />
-    <ClInclude Include="linkedList.h" />
     <ClInclude Include="node.h" />
     <ClInclude Include="vector2d.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="test.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
