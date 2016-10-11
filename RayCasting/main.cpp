@@ -21,7 +21,6 @@ int framerate = 60;
 lineFloat* lines;
 int numLines;
 
-
 int mX, mY; //mouse positions
 
 //calculates the angle from the vertical axis from source to point
@@ -66,6 +65,7 @@ void sortByAngle(vector2d<float>* points, vector2d<float> source, int size) {
 			}
 		}
 	}
+	delete angles;
 }
 
 vector2d<float>screenVertices[] = { vector2d<float>(0.001,0.001), vector2d<float>(windowWidth,windowHeight), vector2d<float>(0,windowHeight), vector2d<float>(windowWidth,0) };
@@ -89,7 +89,7 @@ void drawCircle(double smoothness, int x, int y, double radius) {
 //NEEDS TO BE COMMENTED AT SOME POINT FOR CLARITY
 vector2d<float> castRay(vector2d<float> rayP1, vector2d<float> rayP2, lineFloat edges[], int numEdges) {
 	lineFloat ray;
-	ray = lineFloat(new vector2d<float>(rayP1.getX(), rayP1.getY()), new vector2d<float>(rayP2.getX(), rayP2.getY()));
+	ray = lineFloat(&vector2d<float>(rayP1.getX(), rayP1.getY()), &vector2d<float>(rayP2.getX(), rayP2.getY()));
 
 	double r_px = ray.point1->getX(); double r_py = ray.point1->getY();
 	double r_dx = ray.point2->getX() - ray.point1->getX(); double r_dy = ray.point2->getY() - ray.point1->getY();
@@ -165,48 +165,51 @@ void display() {
 
 	//castRay();
 	vector2d<float> vertex;
-	vector2d<float> rayPoints[28];
+
+	//
+	vector2d<float>* rayPoints = (vector2d<float>*)malloc((6 * numLines + 4) * sizeof(vector2d<float>));
+
 	int rayCount = 0;
 	for (int i = 0; i < numLines*6; i++) {
 		if (i % 6 == 0) //cast ray directly at the first vertex of the line
-			vertex = castRay(vector2d<float>(mX, mY), *lines[i/6].point1, lines, 4);
+			vertex = castRay(vector2d<float>(mX, mY), *lines[i/6].point1, lines, numLines);
 		else if ( i % 6 == 1) //cast ray directly at second vertex of line
-			vertex = castRay(vector2d<float>(mX, mY), *lines[i/6].point2, lines, 4);
+			vertex = castRay(vector2d<float>(mX, mY), *lines[i/6].point2, lines, numLines);
 		else if (i % 6 == 2) {//slightly away from vertex, increase angle from origin slightly, for vertex 1
 			double dx = lines[i / 6].point1->getX() - mX; double dy = lines[i / 6].point1->getY() - mY;
 			double radius = sqrt((dx*dx) + (dy*dy));
 			double theta = calculateAngle(*lines[i / 6].point1, vector2d<float>(mX, mY));
-			theta += 0.5*pi / 180;
+			theta += 0.000001;
 			double newX = mX + radius*cos(theta);
 			double newY = mY - radius*sin(theta);
-			vertex = castRay(vector2d<float>(mX, mY), vector2d<float>(newX, newY), lines, 4);
+			vertex = castRay(vector2d<float>(mX, mY), vector2d<float>(newX, newY), lines, numLines);
 		}
 		else if (i % 6 == 3) {//away from vertex, positive angle direction, for vertex 2
 			double dx = lines[i / 6].point2->getX() - mX; double dy = lines[i / 6].point2->getY() - mY;
 			double radius = sqrt((dx*dx) + (dy*dy));
 			double theta = calculateAngle(*lines[i / 6].point2, vector2d<float>(mX, mY));
-			theta += 0.5*pi / 180;
+			theta += 0.000001;
 			double newX = mX + radius*cos(theta);
 			double newY = mY - radius*sin(theta);
-			vertex = castRay(vector2d<float>(mX, mY), vector2d<float>(newX, newY), lines, 4);
+			vertex = castRay(vector2d<float>(mX, mY), vector2d<float>(newX, newY), lines, numLines);
 		}
 		else if (i % 6 == 4) {//negative angle direction vertex1
 			double dx = lines[i / 6].point1->getX() - mX; double dy = lines[i / 6].point1->getY() - mY;
 			double radius = sqrt((dx*dx) + (dy*dy));
 			double theta = calculateAngle(*lines[i / 6].point1, vector2d<float>(mX, mY));
-			theta -= 0.5*pi / 180;
+			theta -= 0.000001;
 			double newX = mX + radius*cos(theta);
 			double newY = mY - radius*sin(theta);
-			vertex = castRay(vector2d<float>(mX, mY), vector2d<float>(newX, newY), lines, 4);
+			vertex = castRay(vector2d<float>(mX, mY), vector2d<float>(newX, newY), lines, numLines);
 		}
 		else if (i % 6 == 5) {//negative angle direction vertex 2
 			double dx = lines[i / 6].point2->getX() - mX; double dy = lines[i / 6].point2->getY() - mY;
 			double radius = sqrt((dx*dx) + (dy*dy));
 			double theta = calculateAngle(*lines[i / 6].point2, vector2d<float>(mX, mY));
-			theta -= 0.5*pi / 180;
+			theta -= 0.000001;
 			double newX = mX + radius*cos(theta);
 			double newY = mY - radius*sin(theta);
-			vertex = castRay(vector2d<float>(mX, mY), vector2d<float>(newX, newY), lines, 4);
+			vertex = castRay(vector2d<float>(mX, mY), vector2d<float>(newX, newY), lines, numLines);
 		}
 		rayPoints[rayCount].setX(vertex.getX());
 		rayPoints[rayCount].setY(vertex.getY());
@@ -214,10 +217,10 @@ void display() {
 	}
 
 	//casts the rays for the corners of the screen
-	rayPoints[numLines * 6] = castRay(vector2d<float>(mX, mY), vector2d<float>(0, 0), lines, 4);
-	rayPoints[numLines * 6 + 1] = castRay(vector2d<float>(mX, mY), vector2d<float>(windowWidth, 0), lines, 4);
-	rayPoints[numLines * 6 + 2] = castRay(vector2d<float>(mX, mY), vector2d<float>(0, windowHeight), lines, 4);
-	rayPoints[numLines * 6 + 3] = castRay(vector2d<float>(mX, mY), vector2d<float>(windowWidth, windowHeight), lines, 4);
+	rayPoints[numLines * 6] = castRay(vector2d<float>(mX, mY), vector2d<float>(0, 0), lines, numLines);
+	rayPoints[numLines * 6 + 1] = castRay(vector2d<float>(mX, mY), vector2d<float>(windowWidth, 0), lines, numLines);
+	rayPoints[numLines * 6 + 2] = castRay(vector2d<float>(mX, mY), vector2d<float>(0, windowHeight), lines, numLines);
+	rayPoints[numLines * 6 + 3] = castRay(vector2d<float>(mX, mY), vector2d<float>(windowWidth, windowHeight), lines, numLines);
 	glColor3f(0.0, 0.0, 0.0);
 	glBegin(GL_QUADS);
 	glVertex2f(0, 0);
@@ -228,28 +231,30 @@ void display() {
 
 	
 	//draws the visibility polygon on the screen as multiple triangles
-	sortByAngle(rayPoints, vector2d<float>(mX, mY), 28);
+	sortByAngle(rayPoints, vector2d<float>(mX, mY), numLines*6+4);
+
 	glColor3f(0.9, 0.8, 0.01);
 	glBegin(GL_TRIANGLES);
-	for (int i = 0; i < 28; i++) {
+	for (int i = 0; i < numLines*6+5; i++) {
 		glVertex2f(mX, mY);
-		glVertex2f(rayPoints[i%28].getX(), rayPoints[i%28].getY());
-		glVertex2f(rayPoints[(i + 1)%28].getX(), rayPoints[(i + 1) % 28].getY());
+		glVertex2f(rayPoints[i%(numLines*6+4)].getX(), rayPoints[i % (numLines * 6 + 4)].getY());
+		glVertex2f(rayPoints[(i + 1)% (numLines * 6 + 4)].getX(), rayPoints[(i + 1) % (numLines * 6 + 4)].getY());
 	}
 	glEnd();
-	
+	/*
 	//draws the rays	
 	glColor3f(0.5, 0.5, 0.1);
-	for (int i = 0; i < 28; i++) {
+	for (int i = 0; i < numLines*6; i++) {
 		glBegin(GL_LINES);
 		glVertex2f(rayPoints[i].getX(), rayPoints[i].getY());
 		glVertex2f(mX, mY);
 		glEnd();
 	}
-
+	*/
 	//draw the circle where the mouse/player is
 	drawCircle(15, mX, mY, 5);
 	
+
 	//draw the lines
 	glColor3f(1.0, 1.0, 1.0);
 	glLineWidth(1);
@@ -259,6 +264,9 @@ void display() {
 		glVertex2f(lines[i].point2->getX(), lines[i].point2->getY());
 	}
 	glEnd();
+
+	free(rayPoints);
+
 	glutSwapBuffers();
 }
 

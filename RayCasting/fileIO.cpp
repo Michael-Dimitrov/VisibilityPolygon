@@ -20,7 +20,7 @@ lineFloat* readFile(std::string fileName, int* lineCount) {
 	std::ifstream file(fileName); //Open the file
 	if (file.is_open())
 	{
-		std::cout << "File open Successfully." << std::endl;
+		std::cout << "File opened Successfully." << std::endl;
 	}
 	else {
 		std::cout << "File could not be open." << std::endl;
@@ -32,7 +32,7 @@ lineFloat* readFile(std::string fileName, int* lineCount) {
 	lineFloat* lines = new lineFloat[*lineCount];
 	char foo;
 	//iterate for each line
-	for (int i = 0; i < *lineCount + 1; i++) {
+	for (int i = 0; i < *lineCount; i++) {
 		//we need to keep track of the X1, Y1, X2, and Y2 variables
 		int x1, y1, x2, y2;
 		file >> x1 >> foo >> y1 >> foo >> x2 >> foo >> y2;
